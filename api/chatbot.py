@@ -1,14 +1,8 @@
 import os
 from dotenv import load_dotenv
-from langchain_community.embeddings.sentence_transformer import (
-    SentenceTransformerEmbeddings,
-)
-from langchain_community.vectorstores import Chroma
+
 from langchain_core.prompts import PromptTemplate
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
-from langchain_openai import ChatOpenAI
-from langchain.chains import RetrievalQA, LLMChain
+from langchain.chains import LLMChain
 from langchain_community.llms.huggingface_endpoint import HuggingFaceEndpoint
 
 load_dotenv()

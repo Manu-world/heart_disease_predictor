@@ -3,13 +3,16 @@ from pydantic import BaseModel
 from chatbot import get_response
 from model import model 
 import pandas as pd
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 app = FastAPI()
 
 class Message(BaseModel):
     text: str
 
-
+port = int(os.getenv("PORT", 8000))
 
 @app.post('/check')
 async def check_health_data(
@@ -66,3 +69,6 @@ async def chat_with_bot(message: Message, request: Request):
     response= output.split('\n')
     return {"response": response[0:2]}
 
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=port)
