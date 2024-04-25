@@ -12,7 +12,7 @@ app = FastAPI()
 class Message(BaseModel):
     text: str
 
-port = int(os.getenv("PORT", 8000))
+port = int(os.getenv("PORT", 9000))
 
 @app.post('/check')
 async def check_health_data(
