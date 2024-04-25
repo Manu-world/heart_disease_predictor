@@ -1,4 +1,4 @@
-import chromadb,os
+import os
 from dotenv import load_dotenv
 from langchain_community.embeddings.sentence_transformer import (
     SentenceTransformerEmbeddings,
@@ -9,7 +9,6 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI
 from langchain.chains import RetrievalQA, LLMChain
-from sentence_transformers import SentenceTransformer
 from langchain_community.llms.huggingface_endpoint import HuggingFaceEndpoint
 
 load_dotenv()
@@ -24,7 +23,7 @@ llm = HuggingFaceEndpoint(
     max_new_tokens= 512,
     top_k= 30,
     temperature= 0.4,
-    huggingfacehub_api_token= "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",
+    huggingfacehub_api_token= os.getenv("hf_token"),
     
 )
 
