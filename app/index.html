@@ -3,53 +3,287 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Heartty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <style>
-    form {
-      gap: 10px;
-    }
-    form input {
-      display: block;
-      margin-bottom: 10px;
-    }
-  </style>
-  <body>
-    <h1>VITALS</h1>
 
-    <form action="/check" method="post" id="vitals-form">
-      <input type="number" placeholder="age" name="age" id="age" />
-      <input type="number" placeholder="sex" name="sex" id="sex" />
-      <input type="number" placeholder="cp" name="cp" id="cp" />
-      <input
-        type="number"
-        placeholder="trestbps"
-        name="trestbps"
-        id="trestbps"
-      />
-      <input type="number" placeholder="chol" name="chol" id="chol" />
-      <input type="number" placeholder="fbs" name="fbs" id="fbs" />
-      <input type="number" placeholder="restecg" name="restecg" id="restecg" />
-      <input type="number" placeholder="thalach" name="thalach" id="thalach" />
-      <input type="number" placeholder="exang" name="exang" id="exang" />
-      <input type="number" placeholder="oldpeak" name="oldpeak" id="oldpeak" />
-      <input type="number" placeholder="slope" name="slope" id="slope" />
-      <input type="number" placeholder="ca" name="ca" id="ca" />
-      <input type="number" placeholder="thal" name="thal" id="thal" />
-      <button type="submit">Submit</button>
-    </form>
-    <div id="results"></div>
+  <body class="grid grid-cols-3">
+    <div
+      class="form_side mt-3 w-full col-span-1 flex flex-col items-center justify-centerr"
+    >
+      <form
+        action="/check"
+        method="post"
+        id="vitals-form"
+        class="w-full flex flex-col items-center px-10"
+      >
+        <div
+          class="bg-green-500 py-2 px-6 mb-4 text-white text-md font-semibold text-center rounded-md"
+        >
+          Form Header
+        </div>
+        <div class="row1 flex gap-2 w-full justify-between">
+          <div class="mb-2 w-44">
+            <label for="age" class="block text-sm font-medium text-gray-700"
+              >Age</label
+            >
+            <input
+              id="age"
+              type="number"
+              placeholder="Age"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            />
+          </div>
 
-    <div id="chat-container">
-      <div id="chat-history"></div>
-      <form id="message-form">
-        <input
-          type="text"
-          id="message-input"
-          placeholder="Type your message here..."
-        />
-        <button type="submit">Send</button>
+          <div class="mb-2 w-44">
+            <label for="sex" class="block text-sm font-medium text-gray-700"
+              >Sex</label
+            >
+            <select
+              id="sex"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            >
+              <option>1</option>
+              <option>0</option>
+            </select>
+          </div>
+        </div>
+        <div class="row2 flex gap-2 w-full justify-between">
+          <div class="mb-2 w-44">
+            <label for="cp" class="block text-sm font-medium text-gray-700"
+              >Chest Pain Type</label
+            >
+            <select
+              name="cp"
+              id="cp"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            >
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+          </div>
+          <div class="mb-2 w-44">
+            <label
+              for="trestbps"
+              class="block text-sm font-medium text-gray-700"
+              >Resting Blood Pressure</label
+            >
+
+            <input
+              placeholder="trestbps"
+              name="trestbps"
+              id="trestbps"
+              type="number"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            />
+          </div>
+        </div>
+        <div class="row3 flex gap-2 w-full justify-between">
+          <div class="mb-4 w-44">
+            <label for="chol" class="block text-sm font-medium text-gray-700">
+              Cholestrol Level</label
+            >
+            <input
+              type="number"
+              placeholder="chol"
+              name="chol"
+              id="chol"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div class="mb-4 w-44">
+            <label for="fbs" class="block text-sm font-medium text-gray-700"
+              >Fasting Blood Sugar</label
+            >
+            <select
+              name="fbs"
+              id="fbs"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            >
+              <option>0</option>
+              <option>1</option>
+            </select>
+          </div>
+        </div>
+        <div class="row4 flex gap-2 w-full justify-between">
+          <div class="mb-2 w-44">
+            <label for="restecg" class="block text-sm font-medium text-gray-700"
+              >Resting Electrocardiographic</label
+            >
+            <select
+              name="restecg"
+              id="restecg"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            >
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+            </select>
+          </div>
+          <div class="mb-2 w-44">
+            <label for="thalach" class="block text-sm font-medium text-gray-700"
+              >Maximum Heart Rate</label
+            >
+            <input
+              type="number"
+              placeholder="chol"
+              name="thalach"
+              id="thalach"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            />
+          </div>
+        </div>
+        <div class="row5 flex gap-2 w-full justify-between">
+          <div class="mb-2 w-44">
+            <label for="exang" class="block text-sm font-medium text-gray-700"
+              >Exercise-Induced Angina</label
+            >
+            <select
+              name="exang"
+              id="exang"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            >
+              <option>0</option>
+              <option>1</option>
+            </select>
+          </div>
+          <div class="mb-2 w-44">
+            <label for="thalach" class="block text-sm font-medium text-gray-700"
+              >ST Depression</label
+            >
+            <input
+              type="number"
+              placeholder="oldpeak"
+              name="oldpeak"
+              id="oldpeak"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            />
+          </div>
+        </div>
+        <div class="row6 flex gap-2 w-full justify-between">
+          <div class="mb-2 w-44">
+            <label for="slope" class="block text-sm font-medium text-gray-700"
+              >Slope</label
+            >
+            <select
+              name="slope"
+              id="slope"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            >
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+            </select>
+          </div>
+          <div class="mb-2 w-44">
+            <label for="ca" class="block text-sm font-medium text-gray-700"
+              >No. of Major Vessels</label
+            >
+            <select
+              name="ca"
+              id="ca"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            >
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-4 w-44">
+          <label for="thal" class="block text-sm font-medium text-gray-700"
+            >Thallium Heart Scan</label
+          >
+          <select
+            name="thal"
+            id="thal"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+          >
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          class="bg-blue-500 w-full :bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-center"
+        >
+          Submit
+        </button>
       </form>
+    </div>
+    <div
+      id="chat-container"
+      class="col-span-2 h-screen relative w-[95%] mx-4 p-4 bg-white rounded-md shadow-lg"
+    >
+      <div class="w-full h-[90%] flex flex-col items-center">
+        <div
+          class="bg-green-500 py-2 px-6 mb-4 text-white text-md font-semibold text-center rounded-md"
+        >
+          Heartty_Chatbot
+        </div>
+        <!-- Chat history container -->
+        <div
+          class="p-4 h-80 overflow-y-auto w-[95%] flex flex-col items-between"
+        >
+          <!-- Chat messages -->
+          <div class="flex flex-col mb-2">
+            <!-- Incoming message -->
+            <div class="flex items-start mb-2">
+              <div class="bg-blue-500 text-white rounded-lg p-2 max-w-xs">
+                <p id="results">Hello!</p>
+              </div>
+            </div>
+            <!-- Outgoing message -->
+            <div class="flex items-end justify-end mb-2">
+              <div class="bg-green-500 text-white rounded-lg p-2 max-w-xs">
+                <p id="chat-history">Hi there!</p>
+              </div>
+            </div>
+            <!-- More messages can be added here -->
+          </div>
+        </div>
+
+        <form id="message-form" class="absolute bottom-5 w-[90%]">
+          <div
+            class="border border-gray-300 p-2 rounded-full w-full focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500 flex justify-between items-center"
+          >
+            <input
+              type="text"
+              class="w-[80%] focus:outline-none h-full text-gray-700 pl-3 rounded-full"
+              id="message-input"
+              placeholder="Do you need any clarification?..."
+            />
+            <button
+              type="button"
+              class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 inline-block mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M22 12h-4l-3 9L9 3l-3 9H2"
+                ></path>
+              </svg>
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
     <script src="./main.js"></script>
   </body>

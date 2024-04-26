@@ -22,6 +22,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const formData = new FormData(form); // Collect form data
 
+    for (let [key, value] of formData.entries()) {
+      if (
+        key === "thal" ||
+        key === "slope" ||
+        key === "ca" ||
+        key === "exang" ||
+        key === "fbs" ||
+        key === "restecg" ||
+        key === "cp" ||
+        key === "sex"
+      ) {
+        // Add other select fields as needed
+        formData.set(key, parseInt(value));
+      }
+    }
+
     fetch("https://heart-disease-predictor-6.onrender.com/check", {
       method: "POST",
       body: formData, // Send form data
