@@ -34,35 +34,31 @@
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
             />
           </div>
-
           <div class="mb-2 w-44">
             <label for="sex" class="block text-sm font-medium text-gray-700"
               >Sex</label
             >
-            <select
+            <input
               id="sex"
+              type="number"
+              placeholder="sex"
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-            >
-              <option>1</option>
-              <option>0</option>
-            </select>
+            />
           </div>
         </div>
         <div class="row2 flex gap-2 w-full justify-between">
           <div class="mb-2 w-44">
             <label for="cp" class="block text-sm font-medium text-gray-700"
-              >Chest Pain Type</label
+              >Chest Pain</label
             >
-            <select
+
+            <input
+              placeholder="cp"
               name="cp"
               id="cp"
+              type="number"
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-            >
-              <option>0</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+            />
           </div>
           <div class="mb-2 w-44">
             <label
@@ -94,18 +90,18 @@
             />
           </div>
 
-          <div class="mb-4 w-44">
+          <div class="mb-2 w-44">
             <label for="fbs" class="block text-sm font-medium text-gray-700"
               >Fasting Blood Sugar</label
             >
-            <select
+
+            <input
+              placeholder="fbs"
               name="fbs"
               id="fbs"
+              type="number"
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-            >
-              <option>0</option>
-              <option>1</option>
-            </select>
+            />
           </div>
         </div>
         <div class="row4 flex gap-2 w-full justify-between">
@@ -113,15 +109,14 @@
             <label for="restecg" class="block text-sm font-medium text-gray-700"
               >Resting Electrocardiographic</label
             >
-            <select
+
+            <input
+              placeholder="restecg"
               name="restecg"
               id="restecg"
+              type="number"
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-            >
-              <option>0</option>
-              <option>1</option>
-              <option>2</option>
-            </select>
+            />
           </div>
           <div class="mb-2 w-44">
             <label for="thalach" class="block text-sm font-medium text-gray-700"
@@ -137,18 +132,17 @@
           </div>
         </div>
         <div class="row5 flex gap-2 w-full justify-between">
-          <div class="mb-2 w-44">
-            <label for="exang" class="block text-sm font-medium text-gray-700"
-              >Exercise-Induced Angina</label
+          <div class="mb-4 w-44">
+            <label for="exang" class="block text-sm font-medium text-gray-700">
+              Exercise-Included Angina</label
             >
-            <select
+            <input
+              type="number"
+              placeholder="exang"
               name="exang"
               id="exang"
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-            >
-              <option>0</option>
-              <option>1</option>
-            </select>
+            />
           </div>
           <div class="mb-2 w-44">
             <label for="thalach" class="block text-sm font-medium text-gray-700"
@@ -164,51 +158,42 @@
           </div>
         </div>
         <div class="row6 flex gap-2 w-full justify-between">
-          <div class="mb-2 w-44">
-            <label for="slope" class="block text-sm font-medium text-gray-700"
-              >Slope</label
+          <div class="mb-4 w-44">
+            <label for="slope" class="block text-sm font-medium text-gray-700">
+              Slope</label
             >
-            <select
+            <input
+              type="number"
+              placeholder="slope"
               name="slope"
               id="slope"
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-            >
-              <option>0</option>
-              <option>1</option>
-              <option>2</option>
-            </select>
+            />
           </div>
-          <div class="mb-2 w-44">
-            <label for="ca" class="block text-sm font-medium text-gray-700"
-              >No. of Major Vessels</label
+          <div class="mb-4 w-44">
+            <label for="ca" class="block text-sm font-medium text-gray-700">
+              No. Major Vessels</label
             >
-            <select
+            <input
+              type="number"
+              placeholder="ca"
               name="ca"
               id="ca"
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-            >
-              <option>0</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-            </select>
+            />
           </div>
         </div>
         <div class="mb-4 w-44">
-          <label for="thal" class="block text-sm font-medium text-gray-700"
-            >Thallium Heart Scan</label
+          <label for="thal" class="block text-sm font-medium text-gray-700">
+            Thallium Heart Scan</label
           >
-          <select
+          <input
+            type="number"
+            placeholder="thal"
             name="thal"
             id="thal"
             class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-          >
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-          </select>
+          />
         </div>
 
         <button
@@ -237,14 +222,14 @@
           <div class="flex flex-col mb-2">
             <!-- Incoming message -->
             <div class="flex items-start mb-2">
-              <div class="bg-blue-500 text-white rounded-lg p-2 max-w-xs">
-                <p id="results">Hello!</p>
+              <div>
+                <div id="results">Results</div>
               </div>
             </div>
             <!-- Outgoing message -->
             <div class="flex items-end justify-end mb-2">
-              <div class="bg-green-500 text-white rounded-lg p-2 max-w-xs">
-                <p id="chat-history">Hi there!</p>
+              <div class="">
+                <div id="chat-history"></div>
               </div>
             </div>
             <!-- More messages can be added here -->

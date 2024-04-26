@@ -69,9 +69,9 @@ async def check_health_data(
 
 @app.post("/chat")
 async def chat_with_bot(message: Message):
-    session_id = message.get("session_id")
-    context=message.get("context")
-    text=message.get("text")
+    session_id = message.session_id
+    context=message.context
+    text=message.text
     response = get_response(context=context,message=text, session_id=session_id)
     output=("").join(response)
 
