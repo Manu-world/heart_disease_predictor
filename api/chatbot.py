@@ -74,7 +74,7 @@ def get_response(context, message, session_id):
 
     return response.content
 
-# print(get_response(context=context, message="what is my status", session_id=345))
+print(get_response(context=context, message="what is my status", session_id=345))
 
 # while True:
 #     user_input = input("User :")

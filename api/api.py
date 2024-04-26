@@ -72,8 +72,9 @@ async def chat_with_bot(message: Message):
     session_id = message.get("session_id")
     context=message.get("context")
     text=message.get("text")
-    output = get_response(context=context,message=text, session_id=session_id)
-    response= output.split('\n')
+    response = get_response(context=context,message=text, session_id=session_id)
+    output=("").join(response)
+
     return {"response": output}
 
 if __name__ == "__main__":
