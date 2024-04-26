@@ -61,13 +61,14 @@ async def check_health_data(
     elif answer == 0:
         response_text = "Status: You not have heart disease"
     
-    response.set_cookie(key="health_status", value=response_text)
+    response.set_cookie(key="health_status", value=response_text, secure=False)
     return {"response": response_text}
 
 
 @app.post("/chat")
 async def chat_with_bot(message: Message, request: Request):
     health_status = request.cookies.get("health_status")
+    print(f"Health status: {health_status}")
     if health_status:
         context = health_status
     else:

@@ -13,19 +13,6 @@
 // // Example usage
 // sendMessageToBot("Hello, chatbot!");
 
-// document
-//   .getElementById("vitals-form")
-//   .addEventListener("submit", async function (event) {
-//     event.preventDefault();
-//     const formData = new FormData(event.target);
-//     const response = await fetch("/check", {
-//       method: "POST",
-//       body: formData,
-//     });
-//     const data = await response.json();
-//     document.getElementById("results").textContent = data.response;
-//   });
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("vitals-form");
   const resultsDiv = document.getElementById("results");
@@ -35,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const formData = new FormData(form); // Collect form data
 
-    fetch("https://heart-disease-predictor-6.onrender.com//check", {
+    fetch("https://heart-disease-predictor-6.onrender.com/check", {
       method: "POST",
       body: formData, // Send form data
     })
@@ -48,5 +35,41 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Error:", error);
         resultsDiv.innerHTML = `<p>Error: ${error.message}</p>`;
       });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const messageForm = document.getElementById("message-form");
+  const chatHistory = document.getElementById("chat-history");
+  const messageInput = document.getElementById("message-input");
+
+  messageForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const messageText = messageInput.value.trim();
+    if (!messageText) return; // Don't send empty messages
+
+    // Send the message to the chatbot
+    fetch("https://heart-disease-predictor-6.onrender.com/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text: messageText }),
+      credentials: "include", // Include cookies in the request
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Append the chatbot's response to the chat history
+        const responseText = data.response.join(" "); // Assuming response is an array of strings
+        chatHistory.innerHTML += `<p>Chatbot: ${responseText}</p>`;
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        chatHistory.innerHTML += `<p>Error: ${error.message}</p>`;
+      });
+
+    // Clear the input field
+    messageInput.value = "";
   });
 });
