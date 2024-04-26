@@ -19,6 +19,8 @@ app.add_middleware(
 )
 class Message(BaseModel):
     text: str
+    context: str
+    session_id: str
 
 port = int(os.getenv("PORT", 9000))
 
@@ -66,17 +68,13 @@ async def check_health_data(
 
 
 @app.post("/chat")
-async def chat_with_bot(message: Message, request: Request):
-    health_status = request.cookies.get("health_status")
-    print(f"Health status: {health_status}")
-    if health_status:
-        context = health_status
-    else:
-        context = "No health status found"
-    
-    output = get_response(context=context, message=message.text)
+async def chat_with_bot(message: Message):
+    session_id = message.get("session_id")
+    context=message.get("context")
+    text=message.get("text")
+    output = get_response(context=context,message=text, session_id=session_id)
     response= output.split('\n')
-    return {"response": response[0:2]}
+    return {"response": output}
 
 if __name__ == "__main__":
     import uvicorn
