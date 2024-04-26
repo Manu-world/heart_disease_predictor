@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const formData = new FormData(form); // Collect form data
 
-    fetch("http://localhost:8000/check", {
+    fetch("https://heart-disease-predictor-6.onrender.com//check", {
       method: "POST",
       body: formData, // Send form data
     })
