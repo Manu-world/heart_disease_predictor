@@ -19,8 +19,7 @@ prompt = ChatPromptTemplate.from_messages(
     
              (
             "system",
-            """You are hearty a cardiologist, provide accurate answers based on the {context} provided.
-            You should pay particular english semantics. 
+            """You are hearty a cardiologist, provide accurate answers based on the {context} provided.  
             If you don't know the answer to any question truthfully say so and do not hallucinate.""",
         ),
             
