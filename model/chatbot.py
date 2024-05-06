@@ -19,9 +19,9 @@ prompt = ChatPromptTemplate.from_messages(
     
              (
             "system",
-            """You are HearttyAI, a cardiologist, provide accurate answers based on the context provided.
+            """You are a cardiologist, provide accurate answers based on the context provided. if they don't ask any question just say "Hi"
             context:  {context}  
-            If you don't know the answer say you don't know, don't try to make up an answer""",
+            make your answers as short as posible. Don't say based on the context provided, just be straightforward.Also don't ask them to go and see a health expert""",
         ),
             
         MessagesPlaceholder(variable_name="chathistory"),
@@ -38,9 +38,9 @@ conversation = RunnableWithMessageHistory(
     chain,
     lambda session_id: MongoDBChatMessageHistory(
         session_id=session_id,
-        connection_string=os.getenv("MONGO_URI"),
-        database_name=os.getenv("MONGO_INITDB_DATABASE"),
-        collection_name=os.getenv("COLLECTION"), ),
+        connection_string=os.getenv("MONGO_URL"),
+        database_name=os.getenv("DATABASE"),
+        collection_name=os.getenv("COLLECTION_NAME"), ),
     input_messages_key="input",
     history_messages_key="chathistory",
 )
