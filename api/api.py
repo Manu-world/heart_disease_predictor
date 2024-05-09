@@ -29,8 +29,8 @@ port = int(os.getenv("PORT", 9000))
 async def chat_with_bot(message: Message):
     session_id = message.session_id
     context=message.context
-    text=message.text
-    response = get_response(context=context, message=text, session_id=session_id)
+    question=message.text
+    response = get_response(context=context, message=question, session_id=session_id)
     output=("").join(response)
 
     return {"response": output}
