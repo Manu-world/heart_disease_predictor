@@ -19,9 +19,9 @@ prompt = ChatPromptTemplate.from_messages(
     
              (
             "system",
-            """You are a cardiologist, provide accurate answers based on the context provided. if they don't ask any question just say "Hi"
+            """You are a cardiologist, provide accurate answers based on a patient's vitals and heart disease status provided as context. if they don't ask any question just say "Hi"
             context:  {context}  
-            make your answers as short as posible. Don't say based on the context provided, just be straightforward.Also don't ask them to go and see a health expert""",
+            make your answers as short as posible. Don't say based on the context provided, just be straightforward with your answers. Also don't ask them to go and see a health expert""",
         ),
             
         MessagesPlaceholder(variable_name="chathistory"),
@@ -30,6 +30,26 @@ prompt = ChatPromptTemplate.from_messages(
         ),
     ]
 )
+# prompt = ChatPromptTemplate.from_messages(
+#     [
+    
+#              (
+#             "system",
+#             """You are a ceo assistant.you give project summary to project name asked at the end, using the template below. 
+#             ```project summary template:  {context}  ```
+#             """,
+#         ),
+            
+#         MessagesPlaceholder(variable_name="chathistory"),
+#         HumanMessagePromptTemplate.from_template(
+#             "{input}"
+#         ),
+#     ]
+# )
+
+
+
+
 
 chain = prompt | model
 
@@ -38,9 +58,9 @@ conversation = RunnableWithMessageHistory(
     chain,
     lambda session_id: MongoDBChatMessageHistory(
         session_id=session_id,
-        connection_string=os.getenv("MONGO_URL"),
-        database_name=os.getenv("DATABASE"),
-        collection_name=os.getenv("COLLECTION_NAME"), ),
+        connection_string=os.getenv("connection_string"),
+        database_name=os.getenv("db_name"),
+        collection_name=os.getenv("collection"), ),
     input_messages_key="input",
     history_messages_key="chathistory",
 )
