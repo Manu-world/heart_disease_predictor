@@ -40,7 +40,7 @@ conversation = RunnableWithMessageHistory(
     chain,
     lambda session_id: MongoDBChatMessageHistory(
         session_id=session_id,
-        connection_string=os.getenv("MONGO_URI"),
+        connection_string=os.getenv("MONGODB_URI"),
         database_name=os.getenv("MONGO_INITDB_DATABASE"),
         collection_name=os.getenv("COLLECTION"), ),
     input_messages_key="input",
